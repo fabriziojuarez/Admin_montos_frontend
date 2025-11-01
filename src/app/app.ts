@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { GraphicPorcents } from './graphic-porcents/graphic-porcents';
+import { TableRegistros } from './table-registros/table-registros';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [GraphicPorcents, TableRegistros],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
