@@ -10,13 +10,13 @@
       </tr>
     </thead>
     <tbody>
-      <!-- @for (item of registros; track item.id_registro) {  -->
+    @for (item of registros; track item.id_registro) {
         <tr>
-          <td>ddddd</td>
-          <td>dd</td>
-          <td>hoy</td>
+          <td>{{ item.moneda_registro }}</td>
+          <td>{{ item.monto_registro }}</td>
+          <td>{{ item.created_at }}</td>
         </tr>
-    <!-- } --> 
+    }  
     </tbody>
 </table>
 }
