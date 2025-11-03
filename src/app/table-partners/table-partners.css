@@ -1,0 +1,5 @@
+.header-table-partners {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
