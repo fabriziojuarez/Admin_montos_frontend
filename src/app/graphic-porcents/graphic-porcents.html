@@ -1,1 +1,13 @@
-<p>graphic-porcents works!</p>
+<div class="pie-container">
+  <h3>Presencia de monedas en los registros</h3>
+
+  @if (loading) {
+    <p>Cargando datos...</p>
+  } @else {
+    <canvas
+      baseChart
+      [data]="pieChartData"
+      [type]="pieChartType"
+    ></canvas>
+  }
+</div>

@@ -6,11 +6,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Api {
-  private apiUrl = 'http://localhost:8000/registros'; // tu endpoint
+  private baseUrl = 'http://localhost:8000';
 
   constructor(private http: HttpClient) {}
 
   getRegistros(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(`${this.baseUrl}/registros`);
+  }
+
+  getPorcentajes(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.baseUrl}/porcentajes`);
   }
 }

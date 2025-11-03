@@ -1,0 +1,5 @@
+.header-table-registros {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -14,15 +14,15 @@ export class TableRegistros implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    console.log('✅ ngOnInit ejecutado');
+    console.log('ngOnInit ejecutado');
     this.apiService.getRegistros().subscribe({
       next: (data) => {
-        console.log('✅ Datos recibidos:', data);
+        console.log('Datos recibidos:', data);
         this.registros = data;
         this.loading = false;
       },
       error: (err) => {
-        console.error('❌ Error al obtener los registros:', err);
+        console.error('Error al obtener los registros:', err);
         this.loading = false;
       }
     });

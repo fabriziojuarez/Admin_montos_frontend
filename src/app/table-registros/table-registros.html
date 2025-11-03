@@ -1,12 +1,17 @@
 @if(registros.length === 0){
     <p>Cargando registros...</p>
 } @else{
+    <div class="header-table-registros">
+      <h3>Registros</h3>
+      <button>Agregar</button>
+    </div>
     <table class="table-registros">
     <thead>
       <tr>
         <th>Moneda</th>
         <th>Monto</th>
         <th>Fecha</th>
+        <th>Accion</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +20,7 @@
           <td>{{ item.moneda_registro }}</td>
           <td>{{ item.monto_registro }}</td>
           <td>{{ item.created_at }}</td>
+          <td><button>x</button></td>
         </tr>
     }  
     </tbody>
