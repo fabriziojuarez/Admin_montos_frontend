@@ -1,32 +1,103 @@
+@if(partners.length === 0){
+  <p>Cargando empleados...</p>
+}@else{
 <div class="header-table-partners">
-      <h3>Empleados</h3>
-      <button>Agregar</button>
+  <h3>Empleados</h3>
+  <button>Agregar</button>
 </div>
-<table class="table-partners">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Tipo de horario</th>
-        <th>Estado</th>
-        <th>Observacion</th>
-        <th>Entrega</th>
-        <th>Accion</th>
-      </tr>
-    </thead>
-    <tbody>
-    <tr>
-          <td>nomejem</td>
-          <td><select name="tipo de turno" id="tipo-turno">
-            <option value="opcion1">turno completo</option>
-            <option value="opcion2">turno parcial</option>
-            </select></td>
-          <td><select name="tipo de estado" id="tipo-estado">
-            <option value="opcion1">no recibe</option>
-            <option value="opcion2">si recibe</option>
-            </select></td>
-          <td><input></td>
-          <td><input type="checkbox"></td>
-          <td><button>x</button></td>
+<table class="partners-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Horario</th>
+          <th>Estado</th>
+          <th>Observación</th>
+          <th>Entrega</th>
+          <th>Acción</th>
         </tr>
-    </tbody>
-</table>
+      </thead>
+      <tbody>
+        @for (p of partners; track p.id_partner) {
+          <tr>
+            
+            <!-- Nombre -->
+            <td>
+              @if (editando[p.id_partner]) {
+                <input type="text" [(ngModel)]="p.name_partner" />
+              } @else {
+                {{ p.name_partner }}
+              }
+            </td>
+
+            <!-- Horario -->
+            <td>
+              @if (editando[p.id_partner]) {
+                <select [(ngModel)]="p.id_horario">
+                  @for (h of horarios; track h.id) {
+                    <option [value]="h.id">{{ h.nombre }}</option>
+                  }
+                </select>
+              } @else {
+                @for (h of horarios; track h.id) {
+                  @if(h.id == p.id_horario){
+                      <td>{{ h.nombre }}</td>
+                  }
+                }
+              }
+            </td>
+
+            <!-- Estado -->
+            <td>
+              @if (editando[p.id_partner]) {
+                <select [(ngModel)]="p.status_partner">
+                  @for (e of estados; track e.id) {
+                    <option [value]="e.id">{{ e.nombre }}</option>
+                  }
+                </select>
+              } @else {
+                  @for (e of estados; track e.id){
+                    @if(e.id == p.status_partner){
+                      <td>{{ e.nombre }}</td>
+                    }
+                  }
+              }
+            </td>
+
+            <!-- Observación -->
+            <td>
+              @if (editando[p.id_partner]) {
+                <input
+                  type="text"
+                  [(ngModel)]="p.observation_partner"
+                  placeholder="Observación"
+                />
+              } @else {
+                {{ p.observation_partner || '-' }}
+              }
+            </td>
+
+            <!-- Fecha -->
+            <td><input type="checkbox"></td>
+
+            <!-- Acción -->
+            <td class="acciones">
+              @if (editando[p.id_partner]) {
+                <button class="btn-guardar" (click)="guardarCambios(p)">
+                  Guardar
+                </button>
+              } @else {
+                <button class="btn-actualizar" (click)="activarEdicion(p.id_partner)">
+                  Actualizar
+                </button>
+              }
+
+              <button class="btn-eliminar" (click)="eliminarPartner(p.id_partner)">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+
+}

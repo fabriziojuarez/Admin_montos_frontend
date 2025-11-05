@@ -1,1 +1,52 @@
-<p>control works!</p>
+<h1>Panel de Control</h1>
+<div class="content">
+    <div class="controls">
+        <div class="control-moneda">
+            <h4>Moneda Principal: </h4>
+            <select id="moneda" [(ngModel)]="monedaSeleccionada" (change)="onMonedaChange(monedaSeleccionada)">
+                <option value="PEN">PEN</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+            </select>
+        </div>
+        <div class="control-total">
+            <div class="control-total-mes">
+                <h4>Mes: </h4>
+                <select id="mes" [(ngModel)]="mesActual" (change)="onMesChange(mesActual)">
+                    <option value=1>Enero</option>
+                    <option value=2>Febrero</option>
+                    <option value=3>Marzo</option>
+                    <option value=4>Abril</option>
+                    <option value=5>Mayo</option>
+                    <option value=6>Junio</option>
+                    <option value=7>Julio</option>
+                    <option value=8>Agosto</option>
+                    <option value=9>Septiembre</option>
+                    <option value=10>Octubre</option>
+                    <option value=11>Noviembre</option>
+                    <option value=12>Diciembre</option>
+                </select>
+            </div>
+            <div class="control-total-total">
+                <h4>Total del Mes: </h4>
+                @if (total !== null) {
+                    <p>{{ total | number:'1.2-2' }}</p>
+                } @else {
+                    <p>Cargando total...</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="results">
+        <table>
+            <tr>
+                <td>Tiempo Completo</td>
+                <td>Tiempo Parcial</td>
+            </tr>
+            <tr>
+                <td>El doble</td>
+                <td>xd</td>
+            </tr>
+        </table>
+    </div>
+</div>

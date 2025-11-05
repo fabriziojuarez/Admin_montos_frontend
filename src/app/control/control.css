@@ -1,0 +1,20 @@
+.content{
+    display: flex;
+    justify-content: space-around;
+}
+
+.control-moneda{
+    display: flex;
+    align-items: center;
+}
+
+.control-total-mes{
+    display: flex;
+    align-items: center;
+}
+
+.control-total-total{
+    display: flex;
+    align-items: center;
+}
+
