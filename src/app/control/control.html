@@ -40,12 +40,35 @@
     <div class="results">
         <table>
             <tr>
+                <td></td>
                 <td>Tiempo Completo</td>
                 <td>Tiempo Parcial</td>
             </tr>
             <tr>
-                <td>El doble</td>
-                <td>xd</td>
+                <td>Conteo</td>
+                @if (conteo_ft !== null) {
+                    <td>{{ conteo_ft | number:'1.0' }}</td>
+                } @else {
+                    <td>Cargando total...</td>
+                }
+                @if (conteo_pt !== null) {
+                    <td>{{ conteo_pt | number:'1.0' }}</td>
+                } @else {
+                    <td>Cargando total...</td>
+                }
+            </tr>
+            <tr>
+                <td>Monto Correspondiente</td>
+                @if (parte_ft !== null) {
+                    <td>{{ parte_ft | number:'1.2-2' }}</td>
+                } @else {
+                    <td>Cargando total...</td>
+                }
+                @if (parte_pt !== null) {
+                    <td>{{ parte_pt | number:'1.2-2' }}</td>
+                } @else {
+                    <td>Cargando total...</td>
+                }
             </tr>
         </table>
     </div>
